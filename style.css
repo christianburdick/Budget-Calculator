@@ -1,0 +1,139 @@
+body { 
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  color: #333;
+
+  background: linear-gradient(135deg, #d9ecff, #f9fbfd);
+  background-size: 200% 200%;
+  animation: shiftColors 12s ease-in-out infinite alternate;
+}
+@keyframes shiftColors {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+#budgetContainer { 
+  border-radius: 16px; 
+  max-width: 900px;
+  padding: 15px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  margin: 1rem auto; 
+  background: #ffffff; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 600px) {
+  #budgetContainer {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0rem; /* optional bottom spacing */
+  }
+}
+
+/* --- Header --- */
+#header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px; 
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
+}
+#header h2 { 
+  margin: 0; 
+  font-weight: 600; 
+  color: #3b3b3b;
+}
+#buttonsRow { 
+  display: flex; 
+  flex-direction: row; 
+  gap: 12px; 
+}
+
+/* --- Icon Buttons --- */
+.icon-btn { 
+  width: 44px; height: 44px; border-radius: 50%; border: none; 
+  cursor: pointer; font-size: 22px; display: flex; align-items: center; justify-content: center;
+  position: relative; background: #88c0f7; color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: all 0.2s;
+}
+.icon-btn:hover { background: #5a9ae6; transform: translateY(-2px); }
+.tooltip { 
+  visibility: hidden; font-size: 0.75rem;
+  background-color: #333; color: #fff; 
+  border-radius: 6px; padding: 4px 6px; 
+  position: absolute; 
+  top: 52px; left: 50%; transform: translateX(-50%);
+  opacity: 0; transition: opacity 0.3s;
+  white-space: nowrap; z-index: 1;
+}
+.icon-btn:hover .tooltip { visibility: visible; opacity: 1; }
+
+/* --- Output --- */
+#budgetOutput { 
+  min-height: 150px; border-radius: 12px; padding: 15px; 
+  border: 2px solid #c0c0c0; background: #fff; 
+  font-family: 'Courier New', Courier, monospace; 
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  transition: background 0.3s; 
+}
+
+/* --- Modals --- */
+.modal { 
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+  background: rgba(0,0,0,0.4); justify-content: center; align-items: center; 
+}
+.modal-content { 
+  background: #f9f9fb; padding: 20px; border-radius: 12px; width: 90%; max-width: 700px; 
+  max-height: 75vh; overflow-y: auto; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  position: relative;
+}
+.close-btn { 
+  position: absolute; top: 10px; right: 15px; font-weight: bold; cursor: pointer; color: #888; 
+  transition: color 0.2s;
+}
+.close-btn:hover { color: #444; }
+
+/* --- Bill Rows --- */
+.bill-row { 
+  display: grid; 
+  grid-template-columns: 1.2fr 0.8fr 1fr 1fr auto auto; 
+  gap: 8px; 
+  align-items: center; 
+  margin-bottom: 6px; 
+  padding: 4px 0; 
+}
+.bill-row input, .bill-row select { 
+  border-radius: 6px; 
+  border: 1px solid #ccc; 
+  padding: 4px 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.occurrences {  font-size: 0.8em;
+  color: #555;
+  min-width: 120px;
+  display: inline-block; }
+.remove-btn { background: none; border: none; color: red; font-weight: bold; cursor: pointer; font-size: 1em; }
+
+.shaded { background-color: #eef6fc; border-radius: 6px; padding: 2px 4px; }
+.save-msg { color: green; font-weight: bold; margin-left: 10px; display: none; }
+#billList { max-height: 300px; overflow-y: auto; }
+
+/* Responsive bills modal */
+@media (max-width: 600px) {
+  .bill-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #f9fbfd;
+  }
+}

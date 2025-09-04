@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Calculator v.2</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Budget Calculator</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+</head>
+<body>
+
+<div id="budgetContainer">
+  <!-- Header -->
+  <div id="header">
+    <h2>Budget Calculator</h2>
+    <div id="buttonsRow">
+      <button class="icon-btn" id="incomeBtn">$<span class="tooltip">Income / Pay Period</span></button>
+      <button class="icon-btn" id="billsBtn">+<span class="tooltip">Manage Bills</span></button>
+      <button class="icon-btn" id="calculateBtn">=<span class="tooltip">Calculate Budget</span></button>
+    </div>
+  </div>
+
+  <!-- Budget Output -->
+  <div id="budgetOutput">Budget output will appear here.</div>
+</div>
+
+<!-- Income Modal -->
+<div id="incomeModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeIncome">&times;</span>
+    <h3>Income / Pay Period</h3>
+    <label>Income Amount: </label>
+    <input type="number" id="income" placeholder="Enter income"><br><br>
+    <label>Pay Frequency: </label>
+    <select id="payRange">
+      <option value="weekly">Weekly</option>
+      <option value="biweekly">Bi-Weekly</option>
+      <option value="monthly" selected>Monthly</option>
+      <option value="yearly">Yearly</option>
+    </select><br><br>
+    <label>Pay Period Anchor Date: </label>
+    <input type="date" id="payAnchor"><br><br>
+    <button id="saveIncome">Save</button><span class="save-msg" id="incomeSaved">Saved!</span>
+  </div>
+</div>
+
+<!-- Bills Modal -->
+<div id="billsModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeBills">&times;</span>
+    <h3>Manage Bills</h3>
+    <div id="billList"></div>
+    <button onclick="addEmptyBillRow()">+ Add Bill</button><br><br>
+    <button id="saveBills">Save Bills</button><span class="save-msg" id="billsSaved">Saved!</span>
+  </div>
+</div>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
